@@ -1,0 +1,8 @@
+descargar la version de node.js etl la ultima version
+node -v
+npm -v
+
+SI EL npm -v nno te funciona ejecutar esto en powershell como administrador
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+y volver a probar
