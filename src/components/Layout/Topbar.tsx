@@ -7,7 +7,11 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { APP_CONFIG } from "@/config";
 
-export const Topbar = () => {
+interface TopbarProps {
+  onBack: () => void;
+}
+
+export const Topbar = ({  onBack }: TopbarProps) => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const navigate = useNavigate();
   const user = localState.getUserData();
@@ -20,9 +24,7 @@ export const Topbar = () => {
   }, []);
 
   const handleLogout = () => {
-    localState.clearAll();
-    toast.success("Sesión cerrada exitosamente");
-    navigate("/login");
+    onBack();
   };
 
   return (

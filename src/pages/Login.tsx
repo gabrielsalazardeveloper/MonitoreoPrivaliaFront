@@ -9,11 +9,14 @@ import { localState } from "@/utils/localState";
 import { messages } from "@/i18n/messages";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import { useUserContenido } from "@/hooks/UserConteProvider";
+import { SesionSSTFull } from "@/utils/SesionStorage/SesionStorage";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const { contenidoHooks, setContenidoHooks } = useUserContenido();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -27,6 +30,14 @@ const Login = () => {
         localState.setAuthToken(response.token);
         localState.setUserData(response.user);
         toast.success("Inicio de sesión exitoso");
+        const dataSST = {
+          SesionSST: true,
+        };
+        SesionSSTFull(dataSST);
+        setContenidoHooks(prev => ({
+          ...prev,
+          Sesion: dataSST.SesionSST || false,
+        }));
         navigate("/dashboard");
       } else {
         toast.error(response.message || messages.login.error);

@@ -8,8 +8,11 @@ import { BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Toolti
 import { AlertCircle, Clock, CheckCircle2, Loader2 } from "lucide-react";
 
 const COLORS = ["hsl(217, 91%, 45%)", "hsl(38, 92%, 50%)", "hsl(142, 76%, 36%)"];
+interface DashboardProps {
+  onBack: () => void;
+}
 
-const Dashboard = () => {
+const Dashboard = ({ onBack }: DashboardProps) => {
   const [data, setData] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -30,7 +33,7 @@ const Dashboard = () => {
 
   if (loading) {
     return (
-      <MainLayout>
+      <MainLayout onBack={onBack}>
         <div className="flex items-center justify-center h-full">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
         </div>
@@ -41,7 +44,7 @@ const Dashboard = () => {
   if (!data) return null;
 
   return (
-    <MainLayout>
+    <MainLayout onBack={onBack}>
       <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold text-foreground mb-2">
