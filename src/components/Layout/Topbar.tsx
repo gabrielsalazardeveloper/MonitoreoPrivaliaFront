@@ -24,6 +24,9 @@ export const Topbar = ({  onBack }: TopbarProps) => {
   }, []);
 
   const handleLogout = () => {
+    localState.clearAll();
+    toast.success("Sesión cerrada exitosamente");
+    navigate("/login");
     onBack();
   };
 
