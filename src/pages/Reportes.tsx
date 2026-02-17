@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { apiClient } from "@/services/apiClient";
+import { apiClient } from "@/services-2/apiClient";
 import { Report } from "@/types/interfaces";
 import { messages } from "@/i18n/messages";
 import { toast } from "sonner";
@@ -120,7 +120,7 @@ const Reportes = () => {
   if (!currentReport) return null;
 
   return (
-    <MainLayout>
+    <MainLayout onBack={null}>
       <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold text-foreground mb-2">{messages.reportes.title}</h1>

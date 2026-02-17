@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
-import { apiClient } from "@/services/apiClient";
+import { apiClient } from "@/services-2/apiClient";
 import { User, Credential } from "@/types/interfaces";
 import { messages } from "@/i18n/messages";
 import { toast } from "sonner";
@@ -83,7 +83,7 @@ const Perfil = () => {
   if (!user) return null;
 
   return (
-    <MainLayout>
+    <MainLayout onBack={null}>
       <div className="space-y-6 max-w-4xl">
         <div>
           <h1 className="text-3xl font-bold text-foreground mb-2">{messages.perfil.title}</h1>

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { apiClient } from "@/services/apiClient";
+import { apiClient } from "@/services-2/apiClient";
 import { localState } from "@/utils/localState";
 import { messages } from "@/i18n/messages";
 import { toast } from "sonner";
